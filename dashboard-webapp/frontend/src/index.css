@@ -1,0 +1,10 @@
+/* Import Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles tambahan */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* Light gray background */
+}

@@ -8,8 +8,8 @@ function App() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios.get('http://backend:3000/api/quotes').then(res => setQuotes(res.data));
-    axios.get('http://backend:3000/api/news').then(res => setNews(res.data));
+    axios.get('http://localhost:3000/api/quotes').then(res => setQuotes(res.data));
+    axios.get('http://localhost:3000/api/news').then(res => setNews(res.data));
   }, []);
 
   return (

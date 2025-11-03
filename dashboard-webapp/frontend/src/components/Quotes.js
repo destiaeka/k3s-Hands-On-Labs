@@ -1,21 +1,23 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Quotes() {
-  const [quote, setQuote] = useState('');
+  const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/quotes')
-      .then(res => {
-        const random = res.data[Math.floor(Math.random() * res.data.length)];
-        setQuote(random);
-      });
+    axios.get("http://103.160.37.103:5000/api/quotes")
+      .then(res => setQuotes(res.data))
+      .catch(err => console.error(err));
   }, []);
 
   return (
-    <div className="bg-blue-100 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-      <h2 className="font-bold text-xl mb-2">Quote of the Day</h2>
-      <p className="italic text-gray-700">"{quote}"</p>
+    <div>
+      <h2 className="text-xl font-bold mb-2">Quote of the Day</h2>
+      <ul className="list-disc pl-5">
+        {quotes.map((q, i) => (
+          <li key={i}>{q}</li>
+        ))}
+      </ul>
     </div>
   );
 }

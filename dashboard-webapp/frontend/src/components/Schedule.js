@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Schedule() {
   const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/schedule')
-      .then(res => setSchedule(res.data));
+    axios.get("http://103.160.37.103:5000/api/schedule")
+      .then(res => setSchedule(res.data))
+      .catch(err => console.error(err));
   }, []);
 
   return (
-    <div className="bg-purple-100 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
-      <h2 className="font-bold text-xl mb-2">Today's Schedule</h2>
-      <ul className="list-disc pl-5 text-gray-800">
-        {schedule.map((item, idx) => (
-          <li key={idx}>{item.time} - {item.task}</li>
+    <div>
+      <h2 className="text-xl font-bold mb-2">Today's Schedule</h2>
+      <ul className="list-disc pl-5">
+        {schedule.map((s, i) => (
+          <li key={i}>{s.time} - {s.task}</li>
         ))}
       </ul>
     </div>

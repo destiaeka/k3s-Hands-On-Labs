@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Sage Green & Cream Natural Theme */
+    --background: 40 40% 97%;  /* Warm cream */
+    --foreground: 120 15% 25%; /* Dark sage text */
+
+    --card: 40 35% 98%;
+    --card-foreground: 120 15% 25%;
+
+    --popover: 40 35% 98%;
+    --popover-foreground: 120 15% 25%;
+
+    --primary: 95 25% 50%;      /* Sage green */
+    --primary-foreground: 40 40% 97%;
+
+    --secondary: 25 50% 85%;    /* Soft peach accent */
+    --secondary-foreground: 120 15% 25%;
+
+    --muted: 40 25% 92%;
+    --muted-foreground: 120 10% 45%;
+
+    --accent: 95 30% 75%;       /* Light sage */
+    --accent-foreground: 120 15% 25%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 40 40% 97%;
+
+    --border: 95 15% 85%;
+    --input: 95 15% 85%;
+    --ring: 95 25% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-soft: linear-gradient(135deg, hsl(95 25% 50% / 0.1), hsl(25 50% 85% / 0.2));
+    --shadow-soft: 0 4px 20px -4px hsl(95 25% 50% / 0.15);
+    --shadow-card: 0 2px 12px -2px hsl(120 15% 25% / 0.08);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
